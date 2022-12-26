@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { CodeProvider } from '../context/codeContext'
+import { AuthCodeProvider } from '../context/authCodeContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -9,9 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta/>
       </Head>
-      <CodeProvider>
+      <AuthCodeProvider>
         <Component {...pageProps} />
-      </CodeProvider>
+      </AuthCodeProvider>
     </>
   )
 }
