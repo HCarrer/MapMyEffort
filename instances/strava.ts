@@ -36,7 +36,7 @@ const listActivities = (code: string) => {
     }
   }
   console.log(headers)
-  const response = apiInstance.get('/athlete/activities', headers)
+  const response = apiInstance.get('/athlete/activities?per_page=100', headers)
   return response
 }
 
