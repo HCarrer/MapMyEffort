@@ -1,37 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useEffect } from "react"
-import { useCode } from "../context/authCodeContext";
-import { getAuthToken } from "../instances/auth";
+import { useAuthentication } from "../context/authenticationContext";
+
 
 
 const ExchangeToken = () => {
   const router = useRouter()
-  const { handleAuthCode, authCode, handleRefreshToken } = useCode()
+  const { handleAuthentication, authentication } = useAuthentication()
 
   useEffect(() => {
     if(!router.query.code) return
-    handleAuthCode(router.query.code.toString())
+    handleAuthentication(router.query.code.toString())
   }, [router.query.code])
-  
+
   useEffect(() => {
-    if(!authCode) return
-    post()
-  }, [authCode])
-
-  const post = async () => {
-
-    const { data }  = await getAuthToken(authCode)
-    handleRefreshToken(data.data.access_token)
-  }
+    if (!authentication) return
+    router.push('/activities')
+  }, [authentication])
 
   return (
-    <>
-      <span>just wait a minute</span>
-      <Link href={"/activities"}>Go to next page</Link>
-    </>
+    <div className="w-full h-screen flex justify-center items-center">
+      <div className="border">
+        <p>Please wait a minute while we proceed with the rest of the authentication</p>
+      </div>
+      {/* <Link href={"/activities"}>Check my activities</Link> */}
+    </div>
   )
 }
 
