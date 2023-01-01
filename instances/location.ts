@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-// import { useCode } from '../context/authCodeContext'
+// import { useCode } from '../context/authenticationContext'
 
 const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 const CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
