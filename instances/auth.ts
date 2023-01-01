@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-// import { useCode } from '../context/authCodeContext'
+// import { useCode } from '../context/authenticationContext'
 
 const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID
 const CLIENT_SECRET = process.env.NEXT_PUBLIC_CLIENT_SECRET
@@ -29,7 +29,7 @@ authInstance.interceptors.response.use(function (response) {
   return { data: response }
 })
 
-const getAuthToken = (code: string) => {
+const getAccessToken = (code: string) => {
   const data = {
     'client_id': CLIENT_ID || '',
     'client_secret': CLIENT_SECRET || '',
@@ -40,4 +40,4 @@ const getAuthToken = (code: string) => {
   return response
 }
 
-export { OAUTH_TOKEN_BASE_URL, authInstance, getAuthToken }
+export { OAUTH_TOKEN_BASE_URL, authInstance, getAccessToken }
