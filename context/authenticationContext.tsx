@@ -3,12 +3,22 @@ import { getAccessToken } from '../instances/auth'
 import { IAuthentication } from '../interfaces/authentication'
 
 type AuthenticationContextType = {
+  userIsLogged: boolean
+  login: () => void
+  logout: () => void
   accessToken: string
   handleAuthentication: (code: string) => void
   authentication: IAuthentication | undefined
 }
 
 const AuthenticationContextDefaultValues: AuthenticationContextType = {
+  userIsLogged: false,
+  login: () => {
+    return
+  },
+  logout: () => {
+    return
+  },
   accessToken: '',
   handleAuthentication: () => {
     return
@@ -29,6 +39,7 @@ type Props = {
 }
 
 export function AuthenticationProvider({ children }: Props): JSX.Element {
+  const [userIsLogged, setUserIsLogged] = useState<boolean>(false)
   const [accessToken, setAccessToken] = useState<string>('')
   const [authentication, setAuthentication] = useState<IAuthentication>()
 
@@ -37,6 +48,7 @@ export function AuthenticationProvider({ children }: Props): JSX.Element {
       const { data }  = await getAccessToken(code)
       setAuthentication(data.data)
       setAccessToken(data.data.access_token)
+      login()
     } catch {
       setAuthentication(undefined)
       setAccessToken('')
@@ -44,12 +56,22 @@ export function AuthenticationProvider({ children }: Props): JSX.Element {
     }
   }, [])
 
+  const login = () => {
+    setUserIsLogged(true)
+  }
+
+  const logout = () => {
+    setUserIsLogged(false)
+  }
 
   const handleAuthentication = (code: string) => {
     authenticate(code)
   }
 
   const value = {
+    userIsLogged,
+    login,
+    logout,
     accessToken,
     handleAuthentication,
     authentication,

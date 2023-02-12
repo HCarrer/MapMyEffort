@@ -5,7 +5,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        'width': 'width',
+      },
+      colors: {
+        'navy-blue': '#101539',
+        'light-blue': '#3BC6F3',
+        'darker-blue': '#040610',
+        'off-white': '#F1F1F1',
+      },
+    },
   },
   plugins: [],
 }
