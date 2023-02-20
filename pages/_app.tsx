@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { AuthenticationProvider } from '../context/authenticationContext'
 import { ActivityProvider } from '../context/activityContext'
+import Navbar from '../components/common/navbar'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <AuthenticationProvider>
         <ActivityProvider>
+          <Navbar/>
           <Component {...pageProps}/>
         </ActivityProvider>
       </AuthenticationProvider>

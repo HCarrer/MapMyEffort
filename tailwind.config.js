@@ -12,9 +12,15 @@ module.exports = {
       colors: {
         'navy-blue': '#101539',
         'light-blue': '#3BC6F3',
-        'darker-blue': '#040610',
+        'dark-blue': '#040610',
         'off-white': '#F1F1F1',
       },
+      fontFamily: {
+        'anton': ['Anton', 'sans-serif']
+      },
+      fontSize: {
+        '2xs': ['0.7rem', '0.9rem']
+      }
     },
   },
   plugins: [],
