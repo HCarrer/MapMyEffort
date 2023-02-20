@@ -1,16 +1,18 @@
-import { useRouter } from "next/router";
-import { useAuthentication } from "../context/authenticationContext";
-import Navbar from "../components/common/navbar";
+import YourNumbersText from "../components/pages/index/YourNumbersText";
+import Separator from "../components/pages/index/Separator";
+import FAQ from "../components/pages/index/FAQ";
 
-const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
+// const CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 export default function Home() {
-  const { userIsLogged } = useAuthentication()
-  const router = useRouter()
 
   return (
     <>
-      <Navbar/>
+      <div className="px-40 w-full">
+        <YourNumbersText/>
+        <Separator/>
+        <FAQ/>
+      </div>
     </>
   );
 }
