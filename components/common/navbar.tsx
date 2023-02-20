@@ -12,8 +12,8 @@ const Navbar = () => {
   const [sectionOnHover, setSectionOnHover] = useState<string>('')
 
   return (
-    <div className="flex justify-between">
-      <div className="w-fit h-fit">
+    <div className="flex justify-between mb-20">
+      <div className="w-40 h-fit">
         <Link href='/'>
           <Image src='/assets/TEXT_logo_transparent_background_light_blue_no_space.png' alt='Light Blue Text Logo' width={159} height={62}/>
         </Link>
@@ -33,9 +33,12 @@ const Navbar = () => {
         {userIsLogged ? (
           <Link href={MY_ACCOUNT_SECTION.route} className={`transition duration-200 text-white text-xl font-semibold hover:text-light-blue ${MY_ACCOUNT_SECTION.route == router.pathname && 'text-light-blue font-bold underline'}`}>{MY_ACCOUNT_SECTION.name}</Link>
         ) : (
-          <div className={`transition duration-200 py-1 px-3 rounded-full bg-light-blue h-fit w-fit hover:shadow-2xl`}>
-            <button className="text-white text-xl font-semibold">Connect to Strava</button>
-          </div>
+          <Link href='/'>
+            <Image src='/assets/connect_with_strava.svg' alt='Light Blue Text Logo' width={130} height={50}/>
+          </Link>
+          // <div className={`transition duration-200 py-1 px-3 rounded-full bg-light-blue h-fit w-fit hover:shadow-2xl`}>
+          //   <button className="text-white text-xl font-semibold">Connect to Strava</button>
+          // </div>
           )}
       </div>
     </div>
