@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <div className="flex justify-between">
       <div className="w-fit h-fit">
-        <Image src='/assets/TEXT_logo_transparent_background_light_blue_no_space.png' alt='Light Blue Text Logo' width={159} height={62}/>
+        <Link href='/'>
+          <Image src='/assets/TEXT_logo_transparent_background_light_blue_no_space.png' alt='Light Blue Text Logo' width={159} height={62}/>
+        </Link>
       </div>
       <div className="flex gap-x-8 items-center">
         {SECTIONS.map((section) => {
