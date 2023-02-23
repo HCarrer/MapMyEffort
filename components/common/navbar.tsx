@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useRouter } from "next/router";
 import Image from 'next/image'
-import { MY_ACCOUNT_SECTION, SECTIONS } from "../../constants/sections"
+import { MY_ACCOUNT_SECTION, NAVBAR_SECTIONS } from "../../constants/sections"
 import { useAuthentication } from "../../context/authenticationContext";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex gap-x-8 items-center">
-        {SECTIONS.map((section) => {
+        {NAVBAR_SECTIONS.map((section) => {
           return (
             <div key={section.id} className="relative w-fit h-fit overflow-hidden" onMouseLeave={() => setSectionOnHover('')}>
               <Link onMouseOver={() => setSectionOnHover(section.id)} href={section.route} className="transition duration-200 text-white text-xl font-semibold hover:text-light-blue">{section.name}</Link>
